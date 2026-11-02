@@ -9,6 +9,8 @@ library('mice')
 library('MLDataR')
 library('kSamples')
 
+wd <- ""
+
 n_sims <- 100
 
 n_rand_orders <- 100
@@ -669,7 +671,7 @@ pd <- PreDiabetes
 pd$Time_Pre_To_Diabetes <- NULL
 pd <- pd[round(pd$BMI, 5) != 33.30411, ]
 
-load_data("wbcd")
+wbcd <- readRDS(paste0(wd, "wbcd.rds"))
 wbcd <- impute_rf(wbcd)
 
 data("heartdisease")
